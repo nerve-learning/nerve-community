@@ -31,6 +31,7 @@ Windows -> ./alenia-env/bin/activate
 cargo run
 ```
 ## Correr Tests
+(Al ser funciones asyncronicas, se tiene que forzar a correr en un solo hilo)
 ```bash
-cargo test
+cargo test -- --test-threads=1
 ```
