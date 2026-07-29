@@ -1,0 +1,11 @@
+[package]
+name = "nerve_file_watcher"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+alenia-nerve = "1.5.1"
+notify = { version = "8.2.0", features = ["serde"] }
+serde = "1.0.229"
+serde_json = "1.0.151"
+tokio = "1.53.1"
