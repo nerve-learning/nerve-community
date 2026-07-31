@@ -8,6 +8,7 @@ def run(stdin_data):
 def test_archivo_existe():
     assert os.path.exists(RETO), "Debes crear reto.py"
 def test_acepta_input_y_responde():
-    r = run("Ana\n")
+    r = run("Ana\nTierra\n")
     assert r.returncode == 0, f"Error:\n{r.stderr}"
     assert "Ana" in r.stdout, "Debes mostrar el nombre ingresado"
+    assert "Tierra" in r.stdout, "Debes mostrar el planeta ingresado"
