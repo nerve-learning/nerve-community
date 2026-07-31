@@ -8,4 +8,5 @@ def test_sin_errores():
     assert r.returncode == 0, r.stderr
 def test_especifico():
     r = subprocess.run([sys.executable, RETO], capture_output=True, text=True, timeout=15)
-    assert "Pociones Mágicas" in r.stdout\n    assert "Sur" in r.stdout
+    assert "Pociones Mágicas" in r.stdout
+    assert "Sur" in r.stdout
