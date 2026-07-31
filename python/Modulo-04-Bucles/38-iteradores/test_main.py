@@ -8,4 +8,7 @@ def test_sin_errores():
     assert r.returncode == 0, r.stderr
 def test_especifico():
     r = subprocess.run([sys.executable, RETO], capture_output=True, text=True, timeout=15)
-    assert "Comienza el juego" in r.stdout\n    assert "As de Corazones" in r.stdout\n    assert "Rey de Espadas" in r.stdout\n    assert "oculta" in r.stdout.lower()
+    assert "Comienza el juego" in r.stdout
+    assert "As de Corazones" in r.stdout
+    assert "Rey de Espadas" in r.stdout
+    assert "oculta" in r.stdout.lower()

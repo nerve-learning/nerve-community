@@ -8,4 +8,6 @@ def test_sin_errores():
     assert r.returncode == 0, r.stderr
 def test_especifico():
     r = subprocess.run([sys.executable, RETO], capture_output=True, text=True, timeout=15)
-    assert "escaneo" in r.stdout.lower()\n    assert "Tesoro encontrado" in r.stdout\n    assert "terminado" in r.stdout.lower()
+    assert "escaneo" in r.stdout.lower()
+    assert "Tesoro encontrado" in r.stdout
+    assert "terminado" in r.stdout.lower()

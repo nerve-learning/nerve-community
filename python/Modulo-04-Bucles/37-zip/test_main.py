@@ -8,4 +8,6 @@ def test_sin_errores():
     assert r.returncode == 0, r.stderr
 def test_especifico():
     r = subprocess.run([sys.executable, RETO], capture_output=True, text=True, timeout=15)
-    assert "Ensamblando pedidos" in r.stdout\n    assert "res" in r.stdout and "pollo" in r.stdout\n    assert "Todos los pedidos entregados" in r.stdout
+    assert "Ensamblando pedidos" in r.stdout
+    assert "res" in r.stdout and "pollo" in r.stdout
+    assert "Todos los pedidos entregados" in r.stdout

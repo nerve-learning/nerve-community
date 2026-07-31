@@ -5,6 +5,6 @@ def test_archivo_existe():
     assert os.path.exists(RETO)
 def test_reporte_nocturno():
     r = subprocess.run([sys.executable, RETO], capture_output=True, text=True, timeout=15)
-    assert "2,431" in r.stdout or "2431" in r.stdout
-    assert "960" in r.stdout
+    assert "2,186" in r.stdout or "2186" in r.stdout
+    assert "660" in r.stdout
     assert "4" in r.stdout

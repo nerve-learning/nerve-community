@@ -8,4 +8,6 @@ def test_sin_errores():
     assert r.returncode == 0, r.stderr
 def test_especifico():
     r = subprocess.run([sys.executable, RETO], capture_output=True, text=True, timeout=15)
-    assert "FUSIÓN DEL NÚCLEO" in r.stdout\n    assert "Normal" in r.stdout\n    assert "4" in r.stdout
+    assert "FUSIÓN DEL NÚCLEO" in r.stdout
+    assert "Normal" in r.stdout
+    assert "4" in r.stdout
