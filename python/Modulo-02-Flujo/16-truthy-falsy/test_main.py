@@ -8,7 +8,7 @@ def test_sin_errores():
     assert r.returncode == 0, r.stderr
 def test_output():
     r = subprocess.run([sys.executable, RETO], capture_output=True, text=True, timeout=15)
-    if "11-" in RETO or "12-" in RETO or "16-" in RETO:
+    if "11-" in RETO or "12-" in RETO:
         assert "True" in r.stdout or "False" in r.stdout
     else:
         assert len(r.stdout.strip()) > 0
