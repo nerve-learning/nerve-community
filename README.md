@@ -49,6 +49,14 @@ glosario/             ← Diccionario técnico de términos clave, organizado po
 
 > **Regla de Oro:** La estructura de carpetas dentro de los lenguajes (ej. `python/Modulo-XX`) no debe alterarse en nomenclatura. Estos archivos alimentan los templates de los alumnos y la evaluación automática.
 
+## 🚀 ¿Cómo participar?
+
+1. **Usa el Template Oficial:** Todos los retos se resuelven utilizando nuestra plantilla base. 
+   👉 **[Clic aquí para usar nerve--template](https://github.com/nerve-learning/nerve--template)**
+2. **Elige tu Nivel:**
+   * Empieza con los **Módulos 01-02** si quieres afianzar tu lógica o dominar las bases de un nuevo lenguaje.
+   * Ve por los **Módulos Avanzados** si buscas construir sistemas reales (concurrencia, bases de datos, redes).
+
 ---
 
 ## Qué puedes mejorar
