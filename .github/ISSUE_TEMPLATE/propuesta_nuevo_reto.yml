@@ -23,6 +23,19 @@ body:
     validations:
       required: true
   - type: dropdown
+    id: lenguaje
+    attributes:
+      label: "¿Para qué lenguaje(s) propones este reto?"
+      options:
+        - Multilenguaje (Aplica para todos)
+        - Python
+        - Rust
+        - Go
+        - Java
+        - JavaScript / TypeScript
+    validations:
+      required: true
+  - type: dropdown
     id: dificultad
     attributes:
       label: "¿Qué dificultad crees que tiene?"

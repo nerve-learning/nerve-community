@@ -1,0 +1,105 @@
+name: Cierre Automatico de PRs de Alumnos
+
+# Dispara en PRs de forks hacia este repo.
+# pull_request_target tiene acceso a los secrets del repo base, lo que
+# permite comentar y cerrar PRs incluso desde forks externos.
+on:
+  pull_request_target:
+    types: [opened, reopened, synchronize]
+
+jobs:
+  detectar-pr-alumno:
+    name: Detectar PR de alumno y redirigir
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+      contents: read
+
+    steps:
+      - name: Obtener archivos modificados en el PR
+        id: archivos
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { data: files } = await github.rest.pulls.listFiles({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: context.payload.pull_request.number,
+              per_page: 100,
+            });
+
+            // Patrones que indican que el PR es trabajo de un alumno,
+            // no una contribucion al material del repo.
+            const patronesAlumno = [
+              /^python\/Modulo-\d+/,   // Archivos dentro de cualquier modulo de Python
+              /^go\/Modulo-\d+/,
+              /^rust\/Modulo-\d+/,
+              /^javascript\/Modulo-\d+/,
+            ];
+
+            const nombresArchivos = files.map(f => f.filename);
+            const esDeAlumno = nombresArchivos.some(nombre =>
+              patronesAlumno.some(patron => patron.test(nombre))
+            );
+
+            console.log("Archivos en el PR:", nombresArchivos);
+            console.log("Es PR de alumno:", esDeAlumno);
+
+            return esDeAlumno;
+
+      - name: Cerrar PR y notificar al alumno
+        if: steps.archivos.outputs.result == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const prAuthor = context.payload.pull_request.user.login;
+            const prNumber = context.payload.pull_request.number;
+
+            const mensaje = [
+              `Hola @${prAuthor},`,
+              ``,
+              `Gracias por tomarte el tiempo de abrir este PR. Sin embargo, este repositorio (\`nerve-community\`) es el repositorio público del **material del curso**, no el lugar donde los alumnos entregan su trabajo.`,
+              ``,
+              `**Tu trabajo como alumno va en tu propio repositorio privado, generado desde el template oficial.** Los PRs de alumnos a este repo no son evaluados ni cuentan como avance.`,
+              ``,
+              `### Qué hacer ahora`,
+              ``,
+              `1. Si ya tienes tu repositorio generado desde el template: trabaja y haz push directamente ahí. El CI de ese repo es el que valida tu avance.`,
+              `2. Si aún no tienes acceso al template: entra al Discord de la comunidad y pide el enlace al template en el canal correspondiente.`,
+              `3. Puedes mantener o eliminar tu fork de este repo, eso no afecta tu avance como alumno.`,
+              ``,
+              `Lee la guía completa aquí: [Cómo usar como Alumno](https://github.com/${context.repo.owner}/${context.repo.repo}/blob/main/docs/COMO-USAR-COMO-ALUMNO.md)`,
+              ``,
+              `Este PR se cierra automáticamente. No es una penalización — es solo que el canal correcto es otro.`,
+            ].join('\n');
+
+            // Publicar comentario
+            await github.rest.issues.createComment({
+              issue_number: prNumber,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: mensaje,
+            });
+
+            // Cerrar el PR
+            await github.rest.pulls.update({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: prNumber,
+              state: 'closed',
+            });
+
+            // Etiquetar para identificarlos facilmente en el historial
+            try {
+              await github.rest.issues.addLabels({
+                issue_number: prNumber,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                labels: ['redirigido-a-template'],
+              });
+            } catch (e) {
+              // El label puede no existir aun; no es critico
+              console.log("Label no encontrado, se omite:", e.message);
+            }
+
+            console.log(`PR #${prNumber} cerrado y notificado correctamente.`);

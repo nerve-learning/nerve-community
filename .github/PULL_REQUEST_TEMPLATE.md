@@ -1,15 +1,35 @@
-## 📌 ¿Qué reto resuelve este PR?
-(Ej: Reto 01 - chat-terminal. Enlaza el issue con "Closes #NUMERO")
+<!--
+  ATENCION: Lee esto antes de continuar.
 
-## ✅ Checklist
-- [ ] Mi código está dentro de la carpeta correcta del reto
-- [ ] Agregué un README corto explicando cómo correr mi solución
-- [ ] Probé que mi código funciona antes de subirlo
-- [ ] Es mi primera vez contribuyendo a un proyecto open source (opcional, ¡para celebrarlo!)
-- [ ] Creo que esta solución está lo suficientemente pulida como para considerarse para "graduarse" a zenith-nerve-tools (opcional, no pasa nada si no marcas esto)
+  Este repositorio (nerve-community) es el material del curso, no el lugar donde
+  los alumnos entregan su trabajo.
 
-##  Capturas o gif (opcional pero recomendado)
-(Arrastra aquí una imagen o gif de tu solución funcionando)
+  Si eres alumno: NO abras un PR aqui. Tu trabajo va en tu repositorio privado
+  generado desde el template oficial. Si aun no tienes acceso al template,
+  pide el enlace en el Discord de la comunidad.
 
-## 💬 Notas para quien revise
-(¿Algo que quieras comentar, dudas, o partes en las que no estás seguro/a?)
+  Si eres contribuidor y quieres mejorar el material del curso, continua.
+-->
+
+## Tipo de contribucion
+
+- [ ] Mejora de contenido (`teoria.md`, `ejemplo.py`, `README.md` de un modulo)
+- [ ] Correccion en `test_main.py`
+- [ ] Nuevo reto socrático en `retos/`
+- [ ] Correccion de bug general o documentacion
+- [ ] Otro
+
+## Descripcion de los cambios
+
+<!-- Explica que cambiaste y por que. Si resuelve un Issue, incluye "Closes #NUMERO" -->
+
+## Checklist
+
+- [ ] He leido la [Guia de Contribucion](.github/CONTRIBUTING.md).
+- [ ] No modifique la estructura de carpetas ni los nombres de archivos dentro de `python/Modulo-XX/`.
+- [ ] Si modifique un `test_main.py`, lo probe localmente para verificar que es correcto.
+- [ ] Si es un reto socratico nuevo, use la plantilla correcta y lo ubique en la carpeta de dificultad adecuada.
+
+## Notas para quien revise
+
+<!-- Comentarios, dudas, o partes en las que no estas seguro -->

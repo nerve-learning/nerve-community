@@ -1,28 +1,23 @@
-# Reto 02: El Mensaje Secreto 🕵️
+# Reto 02: Ficha de Identidad 🗂️
 
-¡Ya sabes guardar información en la memoria de la computadora! Ahora vas a crear tus propias cajas.
+Vas a crear un pequeño sistema de almacenamiento para guardar la información secreta de un espía y luego imprimirla. 
 
-## Instrucciones
+### Instrucciones
+Crea un archivo llamado `reto.py` y escribe el código necesario para lograr el resultado esperado.
 
-1. Dentro de la carpeta `solucion/` que está en `02-variables/`, crea tu archivo con el formato `tu-usuario-02.py` (por ejemplo, `kaia-02.py`).
-2. Crea una variable llamada `personaje_favorito` y usa el símbolo `=` para guardar el nombre de tu héroe, villano o personaje favorito (¡no olvides las comillas porque es texto!).
-3. Crea una segunda variable llamada `poder` y guarda el superpoder que te gustaría tener.
-4. Usa dos comandos `print()` separados para imprimir el contenido de cada variable en tu terminal. Usa la función `print("--- Título ---")` para que se vea limpio.
+### Reglas
+*   **Puedes usar:** La orden `print`, el signo de asignación `=`, los nombres de variables, paréntesis `()` y comillas `""`.
+*   **Obligatorio:** Tienes que crear 3 cajas (variables) diferentes. Una llamada `agente`, otra `ciudad` y otra `mision`. Primero guardas los datos en las cajas y *luego* usas la orden `print` para mostrar las cajas.
+*   **Prohibido usar:** Conceptos que no hayamos visto. No puedes imprimir el texto directamente, tienes que imprimir las variables.
 
-**Regla inquebrantable:** Solo puedes usar variables y la función `print()`. ¡No escribas el superpoder directamente dentro de los paréntesis del `print()`!
+### Resultado esperado en la terminal
 
-**Resultado esperado en la terminal:**
 ```text
---- Mi Personaje ---
-Batman
---- Mi Superpoder ---
-Invisibilidad
+--- Perfil del Espía ---
+Agente asignado:
+007
+Ciudad actual:
+Londres
+Misión:
+Recuperar el disco duro
 ```
-
-*(Los textos "Batman" e "Invisibilidad" cambiarán por los que tú elegiste)*
-
-Ejecuta tu código desde la raíz del proyecto:
-- **macOS / Linux:** `python3 python/Modulo-01-Fundamentos/02-variables/solucion/tu-usuario-02.py`
-- **Windows:** `python python/Modulo-01-Fundamentos/02-variables/solucion/tu-usuario-02.py`
-
-Si todo sale perfecto y sin errores `NameError`... ¡Felicidades! Ya dominas la memoria básica de la computadora.

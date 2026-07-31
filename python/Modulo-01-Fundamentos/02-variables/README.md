@@ -1,13 +1,10 @@
-# Nivel 02: Variables 📦
+# Nivel 02: Cajas Mágicas (Variables) 📦
 
-¡Felicidades por llegar hasta aquí! Ya sabes cómo hacer que Python hable usando `print()`. Ahora vamos a enseñarle cómo recordar cosas. 
+Imagínate que cada vez que quisieras hablar de tu mejor amigo tuvieras que decir su nombre completo, número de documento, dirección y fecha de nacimiento. Sería agotador. En su lugar, simplemente usas su "nombre" o le dices "amigo".
 
-En la vida real, necesitas recordar tu nombre, tu edad o dónde dejaste las llaves. Los programas también necesitan recordar información para funcionar (como los puntos del jugador o el nombre del usuario). ¡A eso aprenderemos hoy!
+En la programación pasa lo mismo. A veces tenemos mensajes largos o datos importantes que queremos usar muchas veces. En lugar de escribirlos una y otra vez, los guardamos en "cajas" y les ponemos una etiqueta con un nombre fácil de recordar. A estas cajas mágicas las llamamos **Variables**.
 
-## Ruta de aprendizaje
-
-Para superar este nivel, sigue estos pasos en orden:
-
-1. 📖 **Lee la teoría**: Abre el archivo `teoria.md` para entender cómo se guardan los datos en la memoria de la computadora.
-2. 🔬 **Estudia el ejemplo**: Revisa `ejemplo.py` y ejecútalo para ver la magia de guardar y recordar cosas.
-3. ⚔️ **Supera el reto**: Abre `reto.md` y demuestra que puedes dominar la memoria de Python.
+**Ruta de aprendizaje:**
+1. **Teoría:** Descubriremos cómo fabricar cajas y ponerles etiquetas.
+2. **Ejemplo:** Veremos cómo guardar cosas y luego pedírselas a la computadora.
+3. **Reto:** Crearás tu propio sistema de almacenamiento.

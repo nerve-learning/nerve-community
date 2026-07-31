@@ -1,27 +1,22 @@
-# Teoría: Tu primer comando en Python
+# Teoría: Hablando con la máquina
 
-Imagina que Python es un traductor muy estricto. Tú le das una orden, él la traduce al idioma de la máquina, y la máquina la ejecuta.
+Imagina que la computadora es un asistente muy trabajador pero que no tiene sentido común. Si le dices "di hola", podría buscar un archivo llamado "hola" o entrar en pánico. Tienes que ser extremadamente específico.
 
-Nuestra primera orden será pedirle que muestre un texto en la pantalla. Para hacer esto en Python, usamos un comando incorporado llamado `print`.
+Para hacer que la computadora muestre un texto en la pantalla, usamos nuestra primera herramienta: `print()`.
 
-## La instrucción print
+### Anatomía de la instrucción
 
-La palabra `print` en inglés significa "imprimir". En programación, no nos referimos a usar papel y tinta, sino a "imprimir" texto en la pantalla negra de tu computadora (llamada consola o terminal).
+Vamos a desmontar esta línea: `print("Hola")`
 
-La sintaxis (las reglas de escritura) es muy estricta. Así se ve:
+*   `print`: Es la **orden** (o función). En inglés significa "imprimir". Le dice a la computadora: *"Prepárate para mostrar algo en la pantalla"*.
+*   `()`: Los **paréntesis** son como los brazos de la orden. Todo lo que pongas dentro de estos brazos es lo que la orden va a abrazar y procesar. Si `print` es la acción de "entregar una caja", los paréntesis son la caja misma.
+*   `""`: Las **comillas** (dobles o simples) son cruciales. Le dicen a la computadora: *"Lo que está aquí adentro es texto para humanos. No intentes leerlo como si fuera una orden secreta, no intentes calcularlo, solo muéstralo tal cual"*. Sin comillas, la computadora intentará ejecutar la palabra "Hola" como si fuera otra orden y fallará.
 
-```python
-print("¡Hola, mundo!")
-```
+### ¿Qué pasa si me equivoco?
 
-**Anatomía del comando:**
+El error más común de un estudiante que empieza es olvidar cerrar un paréntesis o una comilla. 
 
-- `print`: Es la orden. Debe ir siempre en minúsculas.
-- `( )`: Los paréntesis envuelven lo que queremos que Python imprima. Son obligatorios.
-- `" "`: Las comillas (dobles o simples) le dicen a Python: "Lo que está aquí adentro es texto humano, no intentes ejecutarlo como si fuera código".
+Si escribes `print("Hola)` (nota que falta la comilla final), la computadora se quedará esperando a que termines de escribir el texto para siempre. Al intentar correr el programa, la terminal te mostrará un error en rojo que dice algo como:
+`SyntaxError: unterminated string literal`
 
-## ¿Qué pasa si me equivoco?
-
-Python es muy chismoso y te avisará si escribes algo mal. Si olvidas una comilla o un paréntesis, Python detendrá el programa y te lanzará un "Error de Sintaxis" (`SyntaxError`). ¡No te asustes! Los errores son tus mejores maestros. Solo lee dónde te equivocaste y corrígelo.
-
-¿Listo? Ve al archivo `ejemplo.py` para ver esto en acción.
+**Traducción humana:** "Error de sintaxis: empezaste un texto con una comilla pero nunca lo terminaste. ¡Me quedé esperando el final!"

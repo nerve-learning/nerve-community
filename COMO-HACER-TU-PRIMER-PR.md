@@ -1,116 +1,143 @@
-# ¿CÓMO HACER TU PRIMER PULL REQUEST (PR)?
+# Cómo hacer tu primer Pull Request
 
-Si esta es la primera vez que escuchas sobre Git, GitHub o un "Pull Request", estás en el lugar correcto. En este documento te explicaremos paso a paso y con palabras sencillas cómo contribuir a este (o a cualquier) proyecto open source.
+> [!IMPORTANT]
+> Si estás aquí para resolver los retos de aprendizaje como alumno, lee primero [COMO-USAR-COMO-ALUMNO.md](docs/COMO-USAR-COMO-ALUMNO.md) y [RETOS-SOCRATICOS.md](docs/RETOS-SOCRATICOS.md). Esta guía es para contribuidores que quieren mejorar el material del repositorio.
 
----
+Si es la primera vez que escuchas sobre Git, GitHub o Pull Request, estás en el lugar correcto. Aquí explicamos paso a paso cómo contribuir a este —o a cualquier— proyecto open source.
 
-##  Mini Glosario (Para que no te suene a chino)
-
-- **Git:** Es un programa en tu computadora que actúa como una "máquina del tiempo". Guarda el historial de todos los cambios que haces en tus archivos de código.
-- **GitHub:** Es una página web (una red social para programadores) donde subimos nuestro código usando Git.
-- **Fork:** Es como darle al botón de "Compartir -> Crear una copia". Haces un clon exacto del proyecto de alguien más y lo guardas en tu propia cuenta.
-- **Clone:** Es descargar tu "Fork" (tu copia en GitHub) hacia tu computadora física para que puedas editar los archivos.
-- **Branch (Rama):** Es una línea de tiempo paralela. Creas una rama para no arruinar el código principal (`main`) mientras intentas algo nuevo.
-- **Commit:** Es como un punto de guardado (Save State) en un videojuego. Guarda tus cambios permanentemente con un pequeño mensaje explicando qué hiciste.
-- **Push:** Es subir tus "Commits" (puntos de guardado) de tu computadora a GitHub.
-- **Pull Request (PR):** Es cuando le dices al dueño del proyecto original: *"Oye, mira estos cambios que hice en mi copia. ¿Te gustan? ¿Los quieres añadir a tu proyecto oficial?"*.
+Para entender los términos que aparecen en esta guía, consulta el [Glosario de Git y GitHub](glosario/git-github.md).
 
 ---
 
-##  El diagrama del flujo (Visualiza el proceso)
+## El flujo completo (diagrama)
 
 ```text
-[Proyecto Original] 
-       │
-       │ (1. Fork)
-       ▼
+[Repositorio Original]
+       |
+       | (1. Fork)
+       v
 [Tu copia en GitHub] ──────┐
-       │                   │ (6. Pull Request y Revisión)
-       │ (2. Clone)        │
-       ▼                   │
-[Tu computadora]           │
-       │ (3. Branch)       │
-       │ (4. Escribir)     │
-       │ (5. Commit/Push) ─┘
+       |                   | (6. Pull Request y Revisión)
+       | (2. Clone)        |
+       v                   |
+[Tu computadora]           |
+       | (3. Branch)       |
+       | (4. Escribir)     |
+       | (5. Commit/Push) ─┘
 ```
 
 ---
 
-## ⚙️ Preparativos (Sólo se hace una vez en la vida)
+## Preparativos (solo se hace una vez)
 
-1. **Instala Git:** 
-   - Windows: Descarga [Git for Windows](https://gitforwindows.org/) e instálalo.
-   - Mac: Abre la terminal y escribe `git --version`. Si no lo tienes, te pedirá instalarlo.
-   - Linux: Escribe `sudo apt install git` en tu terminal.
-2. **Identifícate ante Git:**
-   Abre tu terminal y escribe esto (cambiándolo por tu nombre y tu email de GitHub):
-   ```bash
-   git config --global user.name "Tu Nombre Aquí"
-   git config --global user.email "tu_correo@ejemplo.com"
-   ```
-3. **Autentícate con GitHub:**
-   GitHub ya no permite usar contraseñas normales en la terminal. La forma más amigable es instalar la [GitHub CLI (gh)](https://cli.github.com/).
-   Una vez que la instales, abre tu terminal y escribe:
-   ```bash
-   gh auth login
-   ```
-   Sigue las instrucciones: elige `GitHub.com`, luego `HTTPS`, luego `Yes` para autenticar con tus credenciales, y finalmente `Login with a web browser`. Se abrirá tu navegador para dar permiso. ¡Y listo!
+**1. Instala Git**
 
-   *(💡 Alternativa manual: Si no quieres instalar `gh`, debes ir a tu perfil de GitHub -> **Settings > Developer Settings > Personal access tokens > Tokens (classic)**, generar un nuevo token marcando la casilla "repo", y usar ese código larguísimo como si fuera tu contraseña cuando la terminal te lo pida al hacer `git push`).*
+- Windows: descarga [Git for Windows](https://gitforwindows.org/) e instálalo.
+- macOS: abre la terminal y escribe `git --version`. Si no lo tienes, te pedirá instalarlo.
+- Linux: `sudo apt install git`
+
+**2. Identifícate ante Git**
+
+Abre tu terminal y configura tu nombre y correo (el mismo que usas en GitHub):
+
+```bash
+git config --global user.name "Tu Nombre"
+git config --global user.email "tu_correo@ejemplo.com"
+```
+
+**3. Autentícate con GitHub**
+
+GitHub no permite usar contraseñas normales desde la terminal. La forma más sencilla es instalar la [GitHub CLI](https://cli.github.com/) y ejecutar:
+
+```bash
+gh auth login
+```
+
+Sigue las instrucciones: elige `GitHub.com`, luego `HTTPS`, luego `Login with a web browser`. Se abrirá el navegador para autorizar el acceso.
+
+Alternativa sin `gh`: ve a tu perfil de GitHub → Settings → Developer Settings → Personal access tokens → Tokens (classic). Genera un token marcando la casilla `repo` y úsalo como contraseña cuando la terminal te lo pida al hacer `git push`.
 
 ---
 
-##  Paso a Paso Práctico
+## Paso a paso
 
-### 1. El Fork
-Ve arriba a la derecha de este repositorio y presiona el botón que dice **Fork**. Esto creará una copia del proyecto en `https://github.com/TU-USUARIO/nerve-community`.
+### 1. Fork
 
-### 2. El Clone
-Abre tu terminal en la carpeta donde guardas tus proyectos (por ejemplo, en Documentos) y escribe:
+Ve a la página del repositorio y haz clic en el botón **Fork**. Esto crea una copia del proyecto en `https://github.com/TU-USUARIO/nerve-community`.
+
+### 2. Clone
+
+Abre tu terminal en la carpeta donde guardas tus proyectos y descarga tu fork:
+
 ```bash
 git clone https://github.com/TU-USUARIO/nerve-community.git
 cd nerve-community
 ```
 
-### 3. Crear una Branch (Rama)
-Nunca trabajes en la rama `main`. Vamos a crear una dimensión paralela para tu trabajo:
+### 3. Crear una rama
+
+Nunca trabajes directamente en `main`. Crea una rama con un nombre descriptivo del cambio que vas a hacer:
+
 ```bash
-git checkout -b solucion-reto-01
+git checkout -b mejora-glosario-git
 ```
 
 ### 4. Haz tus cambios
-Usa tu editor de texto favorito (VS Code, Cursor, PyCharm, el bloc de notas) y escribe tu código para resolver el reto. Pruébalo.
 
-### 5. Crea el Commit
-Revisa qué archivos cambiaste:
+Usa tu editor preferido. Navega a los archivos que quieres mejorar y realiza los cambios.
+
+Si estás resolviendo un reto socrático, ve a la carpeta correspondiente (por ejemplo `python/Modulo-01-Fundamentos/`) y escribe tu código. Verifica que los tests pasen localmente antes de continuar:
+
+```bash
+pytest test_main.py
+```
+
+### 5. Commit
+
+Revisa qué archivos modificaste:
+
 ```bash
 git status
 ```
-Dile a Git que prepare todos los archivos modificados:
+
+Prepara los archivos y crea el punto de guardado:
+
 ```bash
 git add .
-```
-Guarda el punto de control con un mensaje claro:
-```bash
-git commit -m "Termino el reto 01 de chat en terminal"
+git commit -m "feat: corrige explicación de git rebase en glosario"
 ```
 
-### 6. El Push
-Sube tu rama desde tu computadora hacia tu copia en GitHub:
+Usa mensajes descriptivos. El prefijo `feat:` es para cambios nuevos, `fix:` para correcciones, `docs:` para documentación.
+
+### 6. Push
+
+Sube tu rama a tu copia en GitHub:
+
 ```bash
-git push origin solucion-reto-01
+git push origin mejora-glosario-git
 ```
 
 ### 7. Abre el Pull Request
-Ve a la página de tu copia en GitHub. Arriba verás un banner amarillo/verde que dice "Compare & pull request". Dale clic.
-Rellena la plantilla explicando qué hiciste. ¡Envía tu Pull Request!
+
+Ve a la página de tu fork en GitHub. Verás un banner que dice "Compare & pull request". Haz clic, rellena la plantilla del PR marcando las casillas correspondientes y envíalo.
 
 ---
 
-## 🚨 Errores Comunes de Principiante
+## Errores comunes
 
-- **"Escribí código directamente en main por accidente":** No pasa nada. No hagas `git commit` todavía. Simplemente escribe `git checkout -b nueva-rama` y tus cambios "flotarán" a la nueva rama.
-- **"Hice un commit pero me equivoqué en el mensaje":** Escribe `git commit --amend -m "Mensaje corregido"`.
-- **"Dice que tengo conflictos de merge":** Esto pasa si alguien más editó los mismos archivos que tú. En VS Code, abre los archivos con conflictos y verás resaltadas las diferencias. Elige qué código quieres mantener, guarda el archivo, haz `git add .` y luego `git commit -m "Resuelve conflictos"`.
+**"Escribí código directamente en main por accidente."**
+No pasa nada si aún no hiciste commit. Escribe `git checkout -b nueva-rama` y tus cambios se moverán a esa nueva rama.
 
-¡Tú puedes! Recuerda que nadie rompe un proyecto Open Source por accidente; para eso están las revisiones de Pull Requests. Anímate.
+**"Hice un commit pero me equivoqué en el mensaje."**
+Escribe `git commit --amend -m "Mensaje corregido"`. Solo funciona antes de hacer push.
+
+**"Dice que tengo conflictos de merge."**
+Ocurre cuando alguien más editó los mismos archivos que tú. En VS Code, los archivos con conflictos muestran las diferencias resaltadas. Elige qué código mantener, guarda el archivo y luego:
+```bash
+git add .
+git commit -m "fix: resuelve conflictos de merge"
+```
+
+---
+
+← [Volver al repositorio](README.md)

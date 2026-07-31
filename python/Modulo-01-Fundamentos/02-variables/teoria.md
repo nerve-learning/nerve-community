@@ -1,37 +1,28 @@
-# Teoría: Variables (Cajas con etiquetas)
+# Teoría: Cajas y Etiquetas
 
-Imagina que estás organizando una mudanza. Para no perder tus cosas, las guardas en **cajas de cartón** y a cada caja le pones una **etiqueta** con un marcador para saber qué hay dentro.
+Crear una variable es literalmente tomar una caja vacía, pegarle una etiqueta con un nombre, y meterle algo adentro. 
 
-En programación, una **variable** es exactamente eso: una "caja" en la memoria de la computadora donde guardamos un dato, a la cual le ponemos una "etiqueta" (un nombre) para poder usar ese dato más tarde.
+### Anatomía de la instrucción
 
-## Anatomía de una variable y el símbolo `=`
+Vamos a desmontar esta línea: `mensaje = "Hola"`
 
-Para crear nuestra caja en Python, la sintaxis (la regla) es así:
+*   `mensaje`: Es la **etiqueta** de la caja (el nombre de la variable). La computadora ahora sabe que existe una caja llamada "mensaje".
+*   `=`: El **signo de asignación**. ¡OJO AQUÍ! En matemáticas, el `=` significa "estas dos cosas valen lo mismo". En programación, el `=` es una acción: significa *"toma lo que está a la derecha y guárdalo dentro de la caja de la izquierda"*. Piensa que es una flecha apuntando a la izquierda: `mensaje <--- "Hola"`.
+*   `"Hola"`: Es el **contenido** (texto) que estamos metiendo dentro de la caja.
 
-```python
-nombre = "Kaia"
-```
+Una vez que guardaste algo en la caja `mensaje`, puedes usar `print(mensaje)` para ver qué tiene adentro. Fíjate que al usar la caja en el `print`, **NO** le ponemos comillas, porque no queremos imprimir la palabra literal "mensaje", queremos abrir la caja y ver qué hay dentro.
 
-**Desmontaje de los símbolos:**
+### Reglas para los nombres (etiquetas)
+La computadora es quisquillosa con cómo llamas a tus cajas:
+1. No pueden tener espacios (`mi nombre` está mal).
+2. Para separar palabras usamos un guion bajo: `mi_nombre`.
+3. No pueden empezar con números (`1nombre` está mal).
 
-1. `nombre`: Es la etiqueta de tu caja.
-2. `=`: **¡ATENCIÓN AQUÍ!** En matemáticas, el símbolo `=` significa "igualdad". Pero en programación, **significa ASIGNACIÓN (guardado)**. Léelo como: *"Agarra lo que está a la derecha (`"Kaia"`) y guárdalo dentro de la caja que está a la izquierda (`nombre`)"*.
-3. `"Kaia"`: Es el texto que quieres guardar. 
+### ¿Qué pasa si me equivoco?
 
-Para ver lo que hay dentro de la caja, usamos nuestro comando estrella:
+El error más doloroso al principio es pedirle a la computadora una caja que no has creado, o equivocarte al escribir el nombre.
 
-```python
-print(nombre)
-```
-*Ojo: Cuando imprimimos una variable, NUNCA usamos comillas alrededor del nombre de la caja. Si pusieras `print("nombre")`, Python imprimiría literalmente la palabra "nombre" en lugar de ver qué hay dentro de la caja.*
+Si guardas `saludo = "Hola"` y luego escribes `print(saludoo)`, la terminal gritará en rojo:
+`NameError: name 'saludoo' is not defined`
 
-## Reglas para etiquetar tus cajas
-
-Python es muy ordenado y tiene reglas estrictas para nombrar cajas:
-1. **Sin espacios:** No puedes llamar a tu caja `mi nombre`. Usa guiones bajos: `mi_nombre`.
-2. **Sin números al inicio:** `1caja` es ilegal. `caja1` es correcto.
-
-## ¿Qué pasa si me equivoco?
-
-El error de "bebé" más común es pedirle a Python que abra una caja que aún no existe, o escribir mal la etiqueta. 
-Si guardas un dato en `usuario` pero luego escribes `print(usuari)`, Python entrará en pánico y te mostrará un `NameError` (Error de Nombre). Si ves este error, respira y revisa tu ortografía: la computadora no adivina, obedece exactamente lo que escribes.
+**Traducción humana:** "Error de nombre: Me estás pidiendo que busque la caja 'saludoo', pero no tengo ni idea de qué es eso. ¡Nunca fabricaste esa caja!"

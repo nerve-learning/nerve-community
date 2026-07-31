@@ -1,26 +1,44 @@
-name: Solucionar un Reto
-description: Sube tu solución a uno de los retos de código disponibles.
-title: "Reto: [NOMBRE DEL RETO]"
-labels: ["en-progreso"]
+name: Compartir Solución de un Reto
+description: Comparte el enlace de tu repositorio (creado con nerve--template) con tu solución a un reto.
+title: "Solución: [NOMBRE DEL RETO]"
+labels: ["solución-reto"]
 body:
   - type: markdown
     attributes:
-      value: "¡Gracias por animarte a resolver este reto! Por favor llena esta plantilla para que podamos revisar tu propuesta fácilmente."
+      value: "¡Felicidades por resolver este reto! Llena esta plantilla para compartir tu repositorio generado a partir de `nerve--template`. Así podremos revisar tu código y darte feedback."
   - type: dropdown
-    id: nivel
+    id: lenguaje
     attributes:
-      label: "¿De qué nivel es el reto que resolviste?"
+      label: "¿En qué lenguaje resolviste el reto?"
       options:
-        - Nivel 1 - Principiante
-        - Nivel 2 - Intermedio
-        - Nivel 3 - Avanzado
+        - Python
+        - Rust
+        - Go
+        - Java
+        - JavaScript / TypeScript
+    validations:
+      required: true
+  - type: dropdown
+    id: tipo
+    attributes:
+      label: "¿Qué tipo de reto es?"
+      options:
+        - Reto de Módulo (Evaluado por GitHub Actions)
+        - Reto Socrático
     validations:
       required: true
   - type: input
-    id: nombre_reto
+    id: modulo_nivel
     attributes:
-      label: "Nombre exacto del reto"
-      placeholder: "Ejemplo: 01-chat-terminal"
+      label: "Módulo y Nivel exactos"
+      placeholder: "Ejemplo: python/Modulo-01-Fundamentos/01-hola-mundo"
+    validations:
+      required: true
+  - type: input
+    id: repo_url
+    attributes:
+      label: "Enlace a tu repositorio público"
+      placeholder: "https://github.com/tu-usuario/tu-repo"
     validations:
       required: true
   - type: textarea
@@ -36,13 +54,13 @@ body:
     attributes:
       label: "Lista de verificación"
       options:
-        - label: "Probé mi código localmente y funciona."
+        - label: "Usé el repositorio `nerve--template` para crear mi proyecto."
           required: true
-        - label: "Agregué mi código en la carpeta correspondiente al reto."
+        - label: "Los tests automatizados (si aplican) pasan exitosamente en mi GitHub Actions."
           required: true
-        - label: "Comenté mi código para que otras personas puedan aprender leyéndolo."
+        - label: "Comenté mi código para explicar mis decisiones de diseño."
           required: false
-        - label: "Creo que esta solución está lo suficientemente pulida como para considerarse para 'graduarse' a zenith-nerve-tools."
+        - label: "Creo que esta solución está tan pulida que podría integrarse como herramienta en `zenith-nerve-tools`."
           required: false
   - type: markdown
     attributes:

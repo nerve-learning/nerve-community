@@ -1,13 +1,12 @@
-# Tema 1 - Nivel 01: Hola Mundo 👋
+# Nivel 01: Hola Mundo 🌍
 
-¡Bienvenido al inicio de tu carrera en programación! En este primer escalón, nuestro objetivo es muy simple pero poderoso: lograr que la computadora imprima un mensaje en tu pantalla.
+Toda gran aplicación, desde los videojuegos hasta las redes sociales, empezó con una sola línea de código. 
 
-## Ruta de aprendizaje
+En la vida real, si quieres que alguien haga algo por ti, tienes que decírselo. Con las computadoras es exactamente igual, pero ellas no entienden español ni inglés; entienden lenguajes de programación. 
 
-Para superar este nivel, sigue estos pasos en orden:
+Nuestro primer paso en esta aventura será lograr que la computadora nos "escuche" y repita un mensaje en la pantalla. Esto es útil para saber que el sistema está vivo y listo para recibir más órdenes. Es como el primer llanto de un bebé: significa que todo funciona.
 
-1. 📖 **Lee la teoría**: Abre el archivo `teoria.md` para entender cómo nos comunicamos con Python.
-2. 🔬 **Estudia el ejemplo**: Revisa `ejemplo.py` y ejecútalo en tu computadora.
-3. ⚔️ **Supera el reto**: Abre `reto.md` y demuestra lo que aprendiste.
-
-¡No tengas prisa! Entender bien los cimientos es el secreto de los mejores ingenieros.
+**Ruta de aprendizaje:**
+1. **Teoría:** Aprenderemos la palabra mágica para mostrar mensajes.
+2. **Ejemplo:** Veremos el código en acción.
+3. **Reto:** Escribirás tus primeras líneas de código desde cero.
