@@ -8,4 +8,7 @@ def test_poo():
     sys.path.insert(0, BASE)
     r = subprocess.run([sys.executable, RETO], capture_output=True, text=True, timeout=15)
     assert r.returncode == 0, r.stderr
-    assert "Voyager" in r.stdout\n    assert "Titan" in r.stdout\n    assert "despegue" in r.stdout.lower()
+    assert "Voyager" in r.stdout
+    assert "Titan" in r.stdout
+    assert "despegue" in r.stdout.lower()
+

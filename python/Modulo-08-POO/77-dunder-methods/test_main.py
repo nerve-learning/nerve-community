@@ -8,4 +8,6 @@ def test_poo():
     sys.path.insert(0, BASE)
     r = subprocess.run([sys.executable, RETO], capture_output=True, text=True, timeout=15)
     assert r.returncode == 0, r.stderr
-    assert "Pizza Familiar" in r.stdout\n    assert "15" in r.stdout
+    assert "Pizza Familiar" in r.stdout
+    assert "15" in r.stdout
+
